@@ -13,6 +13,7 @@ import { InboxQueryRenderer } from "./Containers/Inbox"
 import { InquiryQueryRenderer } from "./Containers/Inquiry"
 import { RegistrationFlowQueryRenderer } from "./Containers/RegistrationFlow"
 import { WorksForYouQueryRenderer } from "./Containers/WorksForYou"
+import { About } from "./Scenes/About/About"
 import { ArtistSeriesQueryRenderer } from "./Scenes/ArtistSeries/ArtistSeries"
 import { ArtistSeriesFullArtistSeriesListQueryRenderer } from "./Scenes/ArtistSeries/ArtistSeriesFullArtistSeriesList"
 import { ArtworkQueryRenderer } from "./Scenes/Artwork/Artwork"
@@ -332,6 +333,7 @@ function defineModules<T extends string>(obj: Record<T, ModuleDescriptor>) {
 export type AppModule = keyof typeof modules
 
 const modules = defineModules({
+  About: { Component: About },
   Artist: { Component: ArtistQueryRenderer },
   ArtistSeries: { Component: ArtistSeriesQueryRenderer },
   Artwork: { Component: Artwork },

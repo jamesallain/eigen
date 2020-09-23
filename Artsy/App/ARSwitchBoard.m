@@ -188,6 +188,10 @@ static ARSwitchBoard *sharedInstance = nil;
 
     __weak typeof(self) wself = self;
 
+    [self.routes addRoute:@"/about" handler:JLRouteParams {
+        return [[ARComponentViewController alloc] initWithEmission:nil moduleName:@"About" initialProperties:parameters];
+    }];
+
     [self.routes addRoute:@"/artist/:slug/auction-results" priority:0 handler:JLRouteParams {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"/artist/%@/auction-results", parameters[@"slug"]]];
         return [[ARInternalMobileWebViewController alloc] initWithURL:url];
