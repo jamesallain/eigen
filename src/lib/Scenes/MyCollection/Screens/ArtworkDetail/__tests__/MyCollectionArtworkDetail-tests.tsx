@@ -1,0 +1,5 @@
+describe("MyCollectionArtworkDetail", () => {
+  it("works", () => {
+    //
+  })
+})

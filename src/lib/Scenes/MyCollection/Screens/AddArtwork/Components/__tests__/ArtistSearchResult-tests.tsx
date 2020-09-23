@@ -1,0 +1,5 @@
+describe("ArtistSearchResult", () => {
+  it("works", () => {
+    //
+  })
+})

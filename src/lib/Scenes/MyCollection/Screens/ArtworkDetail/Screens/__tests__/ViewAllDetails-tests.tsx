@@ -1,0 +1,5 @@
+describe("ViewAllDetails", () => {
+  it("works", () => {
+    //
+  })
+})

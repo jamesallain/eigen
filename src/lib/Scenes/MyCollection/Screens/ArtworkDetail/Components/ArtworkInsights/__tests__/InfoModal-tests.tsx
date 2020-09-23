@@ -1,0 +1,5 @@
+describe("InfoModal", () => {
+  it("works", () => {
+    //
+  })
+})

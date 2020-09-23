@@ -1,0 +1,5 @@
+describe("MyCollectionArtworkListHeader", () => {
+  it("works", () => {
+    //
+  })
+})

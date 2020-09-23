@@ -1,0 +1,5 @@
+describe("formatArtworkMedium", () => {
+  it("works", () => {
+    //
+  })
+})

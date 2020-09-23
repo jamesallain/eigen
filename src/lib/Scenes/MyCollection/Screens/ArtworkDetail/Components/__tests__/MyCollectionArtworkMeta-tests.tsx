@@ -1,0 +1,5 @@
+describe("MyCollectionArtworkMeta", () => {
+  it("works", () => {
+    //
+  })
+})

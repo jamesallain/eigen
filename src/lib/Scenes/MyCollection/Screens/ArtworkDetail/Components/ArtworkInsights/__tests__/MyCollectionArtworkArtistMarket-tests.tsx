@@ -1,0 +1,5 @@
+describe("MyCollectionArtworkArtistMarket", () => {
+  it("works", () => {
+    //
+  })
+})

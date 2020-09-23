@@ -1,0 +1,5 @@
+describe("MyCollectionArtworkDemandIndex", () => {
+  it("works", () => {
+    //
+  })
+})
