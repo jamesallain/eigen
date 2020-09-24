@@ -13,9 +13,9 @@ import { Button, Flex, Join, Spacer } from "palette"
 import React from "react"
 import { ScrollView } from "react-native"
 import { graphql, QueryRenderer } from "react-relay"
-import { MyCollectionArtworkInsightsFragmentContainer as ArtworkInsights } from "./Components/ArtworkInsights/MyCollectionArtworkInsights"
-import { MyCollectionArtworkHeaderFragmentContainer as ArtworkHeader } from "./Components/MyCollectionArtworkHeader"
-import { MyCollectionArtworkMetaFragmentContainer as ArtworkMeta } from "./Components/MyCollectionArtworkMeta"
+import { MyCollectionArtworkInsightsFragmentContainer } from "./Components/ArtworkInsights/MyCollectionArtworkInsights"
+import { MyCollectionArtworkHeaderFragmentContainer } from "./Components/MyCollectionArtworkHeader"
+import { MyCollectionArtworkMetaFragmentContainer } from "./Components/MyCollectionArtworkMeta"
 import { WhySell } from "./Components/WhySell"
 
 export interface MyCollectionArtworkDetailProps {
@@ -38,9 +38,9 @@ const MyCollectionArtworkDetail: React.FC<MyCollectionArtworkDetailProps> = ({ a
         hideBottomDivider
       />
       <Join separator={<Spacer my={1} />}>
-        <ArtworkHeader artwork={artwork} />
-        <ArtworkMeta artwork={artwork} />
-        <ArtworkInsights artwork={artwork} marketPriceInsights={marketPriceInsights} />
+        <MyCollectionArtworkHeaderFragmentContainer artwork={artwork} />
+        <MyCollectionArtworkMetaFragmentContainer artwork={artwork} />
+        <MyCollectionArtworkInsightsFragmentContainer artwork={artwork} marketPriceInsights={marketPriceInsights} />
         <WhySell />
 
         <ScreenMargin>
@@ -186,4 +186,8 @@ const LoadingSkeleton = () => {
       </ScreenMargin>
     </>
   )
+}
+
+export const tests = {
+  MyCollectionArtworkDetail,
 }
