@@ -175,6 +175,7 @@ function getNativeModules(): typeof NativeModules {
       setApplicationIconBadgeNumber: jest.fn(),
       presentAugmentedRealityVIR: jest.fn(),
       resolveRelativeURL: jest.fn(),
+      appVersion: "appVersion",
     },
 
     ARSwitchBoardModule: {

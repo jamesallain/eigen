@@ -5,7 +5,6 @@
 
 RCT_EXPORT_MODULE();
 
-
 RCT_EXPORT_METHOD(requestNotificationPermissions)
 {
     /* In eigen, this should request push notification permissions */
@@ -59,6 +58,17 @@ RCT_EXPORT_METHOD(validateAuthCredentialsAreCorrect)
 RCT_EXPORT_METHOD(resolveRelativeURL:(NSString *)path resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     self.urlResolver(path, resolve, reject);
+}
+
+- (NSDictionary *)constantsToExport
+{
+    return @{@"appVersion"  : [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]};
+           
+}
+
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
 }
 
 @end
