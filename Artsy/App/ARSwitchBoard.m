@@ -222,6 +222,12 @@ static ARSwitchBoard *sharedInstance = nil;
         return [sself loadAuctionWithID:parameters[@"id"]];
     }];
 
+    if (![self isFeatureEnabled:@"DisableNativeAuctions"] && [AROptions boolForOption:AROptionsNewSalePage]) {
+        [self.routes addRoute:@"/auction/:sale_id/info" handler:JLRouteParams {
+            return [[ARComponentViewController alloc] initWithEmission:nil moduleName:@"AuctionInfo" initialProperties:parameters];
+        }];
+    }
+        
     [self registerEchoRouteForKey:@"ARAuctionBidArtworkRoute" handler:JLRouteParams {
         __strong typeof (wself) sself = wself;
         return [sself loadBidUIForArtwork:parameters[@"artwork_id"] inSale:parameters[@"id"]];

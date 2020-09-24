@@ -67,6 +67,7 @@ import { PartnerQueryRenderer } from "./Scenes/Partner"
 import { PartnerLocationsQueryRenderer } from "./Scenes/Partner/Screens/PartnerLocations"
 import { PrivacyRequest } from "./Scenes/PrivacyRequest"
 import { SaleQueryRenderer } from "./Scenes/Sale"
+import { SaleInfoQueryRenderer } from "./Scenes/SaleInfo"
 import { SalesQueryRenderer } from "./Scenes/Sales"
 import { Search } from "./Scenes/Search"
 import { ShowArtistsQueryRenderer, ShowArtworksQueryRenderer, ShowMoreInfoQueryRenderer } from "./Scenes/Show"
@@ -337,6 +338,7 @@ const modules = defineModules({
   Artwork: { Component: Artwork },
   ArtworkAttributionClassFAQ: { Component: ArtworkAttributionClassFAQQueryRenderer },
   Auction: { Component: SaleQueryRenderer, fullBleed: true },
+  AuctionInfo: { Component: SaleInfoQueryRenderer },
   Auctions: { Component: SalesQueryRenderer },
   BidFlow: { Component: BidderFlow },
   BottomTabs: { Component: BottomTabs, fullBleed: true },
