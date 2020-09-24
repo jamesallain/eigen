@@ -8,7 +8,7 @@ import { artworkSchema, validateArtworkSchema } from "./Screens/AddArtwork/Form/
 import { ArtworkFormValues } from "./State/MyCollectionArtworkModel"
 
 export const setupMyCollectionScreen = (Component: React.ComponentType<any>) => {
-  return (props: any) => <Boot Component={Component} passProps={props} /> // Hooks + HOC's don't mix :/
+  return (props: any) => <Boot Component={Component} passProps={props} /> // Hooks + HOC's don't mix in jest :/
 }
 
 const Boot: React.FC<{ Component: React.ComponentType<any>; passProps: any }> = ({ Component, passProps }) => {
