@@ -48,7 +48,7 @@ export const AddEditArtwork: React.FC = () => {
 
       <ScreenMargin>
         {/* `handleSubmit` is wired up in <Boot>  */}
-        <Button disabled={!formik.isValid} block onPress={formik.handleSubmit} data-test="CompleteButton">
+        <Button disabled={!formik.isValid} block onPress={formik.handleSubmit} data-test-id="CompleteButton">
           Complete
         </Button>
 
@@ -63,7 +63,7 @@ export const AddEditArtwork: React.FC = () => {
                 artworkGlobalId: artworkState.sessionState.artworkGlobalId,
               })
             }
-            data-test="DeleteButton"
+            data-test-id="DeleteButton"
           >
             Delete
           </Button>
@@ -102,9 +102,13 @@ const PhotosButton: React.FC = () => {
           {photos.length > 0 && (
             <>
               {photos.length === 1 ? (
-                <Sans size="3">1 photo added</Sans>
+                <Sans size="3" data-test-id="onePhoto">
+                  1 photo added
+                </Sans>
               ) : (
-                <Sans size="3">{photos.length} photos added</Sans>
+                <Sans size="3" data-test-id="multiplePhotos">
+                  {photos.length} photos added
+                </Sans>
               )}
             </>
           )}
