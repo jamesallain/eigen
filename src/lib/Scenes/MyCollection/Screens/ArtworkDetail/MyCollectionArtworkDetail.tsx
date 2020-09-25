@@ -44,13 +44,24 @@ const MyCollectionArtworkDetail: React.FC<MyCollectionArtworkDetailProps> = ({ a
         <WhySell />
 
         <ScreenMargin>
-          <Button size="large" block onPress={() => navActions.navigateToConsignSubmission()}>
+          <Button
+            size="large"
+            block
+            onPress={() => navActions.navigateToConsignSubmission()}
+            data-test-id="SubmitButton"
+          >
             Submit this work
           </Button>
 
           <Spacer my={0.5} />
 
-          <Button size="large" variant="secondaryGray" block onPress={() => navActions.navigateToConsignLearnMore()}>
+          <Button
+            size="large"
+            variant="secondaryGray"
+            block
+            onPress={() => navActions.navigateToConsignLearnMore()}
+            data-test-id="LearnMoreButton"
+          >
             Learn more
           </Button>
         </ScreenMargin>
