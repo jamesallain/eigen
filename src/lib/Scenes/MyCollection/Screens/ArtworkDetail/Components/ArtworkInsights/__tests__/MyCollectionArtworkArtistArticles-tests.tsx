@@ -1,4 +1,5 @@
 import { MyCollectionArtworkArtistArticlesTestsQuery } from "__generated__/MyCollectionArtworkArtistArticlesTestsQuery.graphql"
+import { CaretButton } from "lib/Components/Buttons/CaretButton"
 import OpaqueImageView from "lib/Components/OpaqueImageView/OpaqueImageView"
 import { AppStore } from "lib/store/AppStore"
 import { extractText } from "lib/tests/extractText"
@@ -46,8 +47,11 @@ describe("MyCollectionArtworkArtistArticles", () => {
   it("renders without throwing an error", () => {
     const wrapper = renderWithWrappers(<TestRenderer />)
     resolveData()
+    expect(wrapper.root.findByType(OpaqueImageView)).toBeDefined()
     const text = extractText(wrapper.root)
     expect(text).toContain("Latest Articles")
+    expect(text).toContain("thumbnailTitle")
+    expect(text).toContain("publishedAt")
   })
 
   it("navigates to correct article on click", () => {
@@ -57,5 +61,18 @@ describe("MyCollectionArtworkArtistArticles", () => {
     resolveData()
     wrapper.root.findAllByType(TouchableOpacity)[0].props.onPress()
     expect(spy).toHaveBeenCalledWith('<mock-value-for-field-"slug">')
+  })
+
+  it("navigates to all articles on click", () => {
+    const spy = jest.fn()
+    AppStore.actions.myCollection.navigation.navigateToAllArticles = spy as any
+    const wrapper = renderWithWrappers(<TestRenderer />)
+    resolveData({
+      Artist: () => ({
+        slug: "artist-slug",
+      }),
+    })
+    wrapper.root.findAllByType(CaretButton)[0].props.onPress()
+    expect(spy).toHaveBeenCalledWith("artist-slug")
   })
 })
