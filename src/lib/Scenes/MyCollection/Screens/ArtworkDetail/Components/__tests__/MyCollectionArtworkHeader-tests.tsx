@@ -7,40 +7,35 @@ import { graphql, QueryRenderer } from "react-relay"
 import { createMockEnvironment, MockPayloadGenerator } from "relay-test-utils"
 import { MyCollectionArtworkHeaderFragmentContainer } from "../MyCollectionArtworkHeader"
 
+jest.unmock("react-relay")
+
 describe("MyCollectionArtworkHeader", () => {
   let mockEnvironment: ReturnType<typeof createMockEnvironment>
-
-  const TestRenderer = () => {
-    return (
-      <QueryRenderer<MyCollectionArtworkHeaderTestsQuery>
-        environment={mockEnvironment}
-        query={graphql`
-          query MyCollectionArtworkHeaderTestsQuery @relay_test_operation {
-            artwork(id: "some-slug") {
-              ...MyCollectionArtworkHeader_artwork
-            }
+  const TestRenderer = () => (
+    <QueryRenderer<MyCollectionArtworkHeaderTestsQuery>
+      environment={mockEnvironment}
+      query={graphql`
+        query MyCollectionArtworkHeaderTestsQuery @relay_test_operation {
+          artwork(id: "some-slug") {
+            ...MyCollectionArtworkHeader_artwork
           }
-        `}
-        variables={{}}
-        render={({ props, error }) => {
-          console.log("-------------------------")
-          if (error) {
-            console.log(error)
-          }
-          if (props?.artwork) {
-            return <MyCollectionArtworkHeaderFragmentContainer artwork={props.artwork} />
-          }
-          return null
-        }}
-      />
-    )
-  }
+        }
+      `}
+      variables={{}}
+      render={({ props }) => {
+        if (props?.artwork) {
+          return <MyCollectionArtworkHeaderFragmentContainer artwork={props.artwork} />
+        }
+        return null
+      }}
+    />
+  )
 
   beforeEach(() => {
     mockEnvironment = createMockEnvironment()
   })
 
-  it("renders correct components", () => {
+  it("renders without throwing an error", () => {
     const wrapper = renderWithWrappers(<TestRenderer />)
 
     mockEnvironment.mock.resolveMostRecentOperation((operation) =>
