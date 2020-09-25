@@ -51,8 +51,9 @@ describe("MyCollectionArtworkHeader", () => {
       })
     )
 
-    expect(extractText(wrapper.root)).toContain("some artist name")
-    expect(extractText(wrapper.root)).toContain("some title, Jan 20th")
+    const text = extractText(wrapper.root)
+    expect(text).toContain("some artist name")
+    expect(text).toContain("some title, Jan 20th")
     expect(wrapper.root.findAllByType(OpaqueImageView)).toBeDefined()
   })
 })
