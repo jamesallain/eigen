@@ -4,6 +4,17 @@
 import { ReaderFragment } from "relay-runtime";
 import { FragmentRefs } from "relay-runtime";
 export type Fair2_fair = {
+    readonly fairArtworks: {
+        readonly edges: ReadonlyArray<{
+            readonly node: {
+                readonly id: string;
+            } | null;
+        } | null> | null;
+        readonly counts: {
+            readonly total: number | null;
+        } | null;
+        readonly " $fragmentRefs": FragmentRefs<"InfiniteScrollArtworksGrid_connection">;
+    } | null;
     readonly articles: {
         readonly edges: ReadonlyArray<{
             readonly __typename: string;
@@ -27,6 +38,75 @@ const node: ReaderFragment = {
   "metadata": null,
   "argumentDefinitions": [],
   "selections": [
+    {
+      "kind": "LinkedField",
+      "alias": "fairArtworks",
+      "name": "filterArtworksConnection",
+      "storageKey": "filterArtworksConnection(first:20)",
+      "args": [
+        {
+          "kind": "Literal",
+          "name": "first",
+          "value": 20
+        }
+      ],
+      "concreteType": "FilterArtworksConnection",
+      "plural": false,
+      "selections": [
+        {
+          "kind": "LinkedField",
+          "alias": null,
+          "name": "edges",
+          "storageKey": null,
+          "args": null,
+          "concreteType": "FilterArtworksEdge",
+          "plural": true,
+          "selections": [
+            {
+              "kind": "LinkedField",
+              "alias": null,
+              "name": "node",
+              "storageKey": null,
+              "args": null,
+              "concreteType": "Artwork",
+              "plural": false,
+              "selections": [
+                {
+                  "kind": "ScalarField",
+                  "alias": null,
+                  "name": "id",
+                  "args": null,
+                  "storageKey": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "LinkedField",
+          "alias": null,
+          "name": "counts",
+          "storageKey": null,
+          "args": null,
+          "concreteType": "FilterArtworksCounts",
+          "plural": false,
+          "selections": [
+            {
+              "kind": "ScalarField",
+              "alias": null,
+              "name": "total",
+              "args": null,
+              "storageKey": null
+            }
+          ]
+        },
+        {
+          "kind": "FragmentSpread",
+          "name": "InfiniteScrollArtworksGrid_connection",
+          "args": null
+        }
+      ]
+    },
     {
       "kind": "LinkedField",
       "alias": "articles",
@@ -79,5 +159,5 @@ const node: ReaderFragment = {
     }
   ]
 };
-(node as any).hash = 'f4f5fc4db1badbd49e1d6f960cfec388';
+(node as any).hash = '552a1b18f7ac8d1ed8d08526abf662db';
 export default node;
