@@ -13,7 +13,7 @@ import { ViewAllDetails } from "../Screens/ArtworkDetail/Screens/ViewAllDetails"
 import { ConsignmentsSubmissionForm } from "../Screens/ConsignmentsHome/ConsignmentsSubmissionForm"
 
 type ModalType = "add" | "edit" | null
-type InfoModalType = "demandIndex" | "priceEstimate" | "artistMarket" | "auctionResults" | null
+export type InfoModalType = "demandIndex" | "priceEstimate" | "artistMarket" | "auctionResults" | null
 
 export interface MyCollectionNavigationModel {
   sessionState: {

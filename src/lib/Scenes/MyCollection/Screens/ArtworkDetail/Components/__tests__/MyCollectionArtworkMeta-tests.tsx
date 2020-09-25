@@ -1,6 +1,5 @@
 import { MyCollectionArtworkMetaTestsQuery } from "__generated__/MyCollectionArtworkMetaTestsQuery.graphql"
 import { CaretButton } from "lib/Components/Buttons/CaretButton"
-import OpaqueImageView from "lib/Components/OpaqueImageView/OpaqueImageView"
 import { AppStore } from "lib/store/AppStore"
 import { extractText } from "lib/tests/extractText"
 import { renderWithWrappers } from "lib/tests/renderWithWrappers"
